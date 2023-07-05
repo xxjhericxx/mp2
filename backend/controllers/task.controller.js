@@ -4,9 +4,9 @@ const Task = db.tasks;
 // create and save a task
 exports.create = (req, res) => {
   // validate
-  if(!req.body.title || !req.body.description) {
+  if(!req.body.name || !req.body.description) {
     res.status(400).send({
-      message: `Title or Description cannot be empty.`,
+      message: `Name or Description cannot be empty.`,
       success: false,
       errorCode: `ERR9001`
     });
@@ -14,10 +14,13 @@ exports.create = (req, res) => {
   }
 
   // create object in memory
-  const {title, description, published} = req.body;
+  const {name, description, priority, completed, avatar} = req.body;
   const task = {
-    title, description, published
+    name, description
   };
+  task.priority = priority || task.priority;
+  task.completed = (completed == true || completed == false) ? completed : task.completed;
+  task.avatar = avatar || task.avatar;
 
   // save to db
   Task.create(task)
@@ -90,9 +93,9 @@ exports.findOne = (req, res) => {
 // update a task
 exports.update = (req, res) => { 
   // validate
-  if(!req.body.title || !req.body.description) {
+  if(!req.body.name || !req.body.description) {
     res.status(400).send({
-      message: `Title and/or Description cannot be empty during an update.`,
+      message: `Name and/or Description cannot be empty during an update.`,
       success: false,
       errorCode: `ERR9002`
     });
@@ -103,10 +106,14 @@ exports.update = (req, res) => {
   const id = req.params.id;
 
   // construct object
-  const {title, description, published} = req.body;
+  // create object in memory
+  const {name, description, priority, completed, avatar} = req.body;
   const task = {
-    title, description, published
-  }; 
+    name, description
+  };
+  task.priority = priority || task.priority;
+  task.completed = (completed == true || completed == false) ? completed : task.completed;
+  task.avatar = avatar || task.avatar;
 
   // save to db
   Task.update(task, {where: {id: id}})
