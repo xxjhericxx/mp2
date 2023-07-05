@@ -1,15 +1,15 @@
 module.exports = (sequelize, DataTypes) => {
-  const Comment = sequelize.define('comments', {
+  const Task = sequelize.define('tasks', {
     id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       primaryKey: true
     },
-    title: {
+    avatar: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
-    username: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -17,12 +17,17 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    published: {
+    priority: {
+      type: DataTypes.STRING(32),
+      allowNull: false,
+      defaultValue: 'low' //low, medium, high
+    },
+    completed: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false
     }
   });
 
-  return Comment;
+  return Task;
 };

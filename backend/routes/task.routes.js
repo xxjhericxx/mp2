@@ -1,4 +1,4 @@
-// tutorial.routes.js
+// task.routes.js
 module.exports = (app) => {
   // resource group --> RESTful --> CRUD
   // 1. create
@@ -12,30 +12,30 @@ module.exports = (app) => {
   // put *Update (put|patch) (update)
   // delete *Delete (deleteOne, deleteAll)
 
-  const tutorials = require('../controllers/tutorial.controller');
+  const tasks = require('../controllers/task.controller');
 
   let router = require('express').Router();
 
-  // create new tutorial
-  router.post('/', tutorials.create);
+  // create new task
+  router.post('/', tasks.create);
 
-  // retrieve all tutorials
-  router.get('/', tutorials.findAll);
+  // retrieve all tasks
+  router.get('/', tasks.findAll);
 
-  // retrive one tutorial via id
-  router.get('/:id', tutorials.findOne);
+  // retrive one task via id
+  router.get('/:id', tasks.findOne);
 
-  // update one tutorial
-  router.put('/:id', tutorials.update);
+  // update one task
+  router.put('/:id', tasks.update);
 
-  // delete all tutorials
-  router.delete('/', tutorials.deleteAll);
+  // delete all tasks
+  router.delete('/', tasks.deleteAll);
 
-  // delete one tutorial via id
-  router.delete('/:id', tutorials.deleteOne);
+  // delete one task via id
+  router.delete('/:id', tasks.deleteOne);
 
   // use the router
-  app.use('/api/tutorials', router);
+  app.use('/api/tasks', router);
 
   // curl -l <address> --> GET
   // curl -X POST|PUT|DELETE <address>

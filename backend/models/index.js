@@ -19,7 +19,6 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 // import models
-db.tutorials = require('./tutorial.model')(sequelize, Sequelize);
-db.comments = require('./comment.model')(sequelize, Sequelize);
+db.tasks = require('./task.model')(sequelize, Sequelize);
 
 module.exports = db;

@@ -1,7 +1,7 @@
 const db = require('../models');
-const Tutorial = db.tutorials;
+const Task = db.tasks;
 
-// create and save a tutorial
+// create and save a task
 exports.create = (req, res) => {
   // validate
   if(!req.body.title || !req.body.description) {
@@ -15,33 +15,33 @@ exports.create = (req, res) => {
 
   // create object in memory
   const {title, description, published} = req.body;
-  const tutorial = {
+  const task = {
     title, description, published
   };
 
   // save to db
-  Tutorial.create(tutorial)
+  Task.create(task)
     .then(data => {
       res.status(200).send({
         success: true,
-        message: 'Tutorial saved successfully.',
+        message: 'Task saved successfully.',
         data: data
       });
     })
     .catch(error => {
       res.status(500).send({
         success: false,
-        message: `Saving of Tutorial data failed. Error: ${error}`,
+        message: `Saving of Task data failed. Error: ${error}`,
         errorCode: `ERR8001`,
       })
     });
 
 };
 
-// retrieve all tutorials
+// retrieve all tasks
 exports.findAll = (req, res) => { 
   // find and respond
-  Tutorial.findAll()
+  Task.findAll()
     .then(data => {
       res.status(200).send({
         success: true,
@@ -51,18 +51,18 @@ exports.findAll = (req, res) => {
     .catch(error => {
       res.status(500).send({
         success: false,
-        message: `Cannot retrieve tutorial records. Error: ${error}`,
+        message: `Cannot retrieve task records. Error: ${error}`,
         errorCode: `ERR8002`,
       })
     });
 };
 
-// retrieve a single tutorial 
+// retrieve a single task 
 exports.findOne = (req, res) => {
   // find and respond
   const id = req.params.id;
 
-  Tutorial.findByPk(id)
+  Task.findByPk(id)
     .then(data => {
       if (data) {
         res.status(200).send({
@@ -72,7 +72,7 @@ exports.findOne = (req, res) => {
       } else {
         res.status(400).send({
           success: false,
-          message: `Cannot find tutorial data with id = ${id}`,
+          message: `Cannot find task data with id = ${id}`,
           errorCode: `ERR7001`
         });
       }
@@ -80,14 +80,14 @@ exports.findOne = (req, res) => {
     .catch(error => {
       res.status(500).send({
         success: false,
-        message: `Cannot retrieve tutorial record. Error: ${error}`,
+        message: `Cannot retrieve task record. Error: ${error}`,
         errorCode: `ERR8003`,
       })
     });
 
 };
 
-// update a tutorial
+// update a task
 exports.update = (req, res) => { 
   // validate
   if(!req.body.title || !req.body.description) {
@@ -104,17 +104,17 @@ exports.update = (req, res) => {
 
   // construct object
   const {title, description, published} = req.body;
-  const tutorial = {
+  const task = {
     title, description, published
   }; 
 
   // save to db
-  Tutorial.update(tutorial, {where: {id: id}})
+  Task.update(task, {where: {id: id}})
     .then(num => {
       if (num && num[0] && num >= 1) {
         res.status(200).send({
           success: true,
-          message: 'Tutorial updated successfully.',
+          message: 'Task updated successfully.',
           data: {
             id: id,
             recordsAffected: num && num[0] ? num[0] : 1
@@ -123,7 +123,7 @@ exports.update = (req, res) => {
       } else {
         res.status(400).send({
           success: false,
-          message: `Cannot find tutorial data with id = ${id}, update data ignored.`,
+          message: `Cannot find task data with id = ${id}, update data ignored.`,
           errorCode: `ERR7002`
         });
       }
@@ -137,13 +137,13 @@ exports.update = (req, res) => {
     });
 };
 
-// delete all tutorials
+// delete all tasks
 exports.deleteAll = (req, res) => {
-  Tutorial.destroy({where: {}, trucate: true})
+  Task.destroy({where: {}, trucate: true})
     .then(nums => {
       res.status(200).send({
         success: true,
-        message: `${nums} tutorial${nums > 1 ? 's' : ''} deleted successfully.`,
+        message: `${nums} task${nums > 1 ? 's' : ''} deleted successfully.`,
         data: {
           recordsAffected: nums
         }
@@ -158,18 +158,18 @@ exports.deleteAll = (req, res) => {
     });
 };
 
-// delete a single tutorial
+// delete a single task
 exports.deleteOne = (req, res) => {
   // get id
   const id = req.params.id;
 
   // save to db and respond
-  Tutorial.destroy({ where: {id : id}})
+  Task.destroy({ where: {id : id}})
     .then(num => {
       if (num >= 1) {
         res.status(200).send({
           success: true,
-          message: 'Tutorial deleted successfully.',
+          message: 'Task deleted successfully.',
           data: {
             id: id,
             recordsAffected: num
@@ -178,7 +178,7 @@ exports.deleteOne = (req, res) => {
       } else {
         res.status(400).send({
           success: false,
-          message: `Cannot delete tutorial data with id = ${id}, delete request ignored.`,
+          message: `Cannot delete task data with id = ${id}, delete request ignored.`,
           errorCode: `ERR7003`
         });
       }
