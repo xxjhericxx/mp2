@@ -1,22 +1,25 @@
 {
   "name": "starter",
   "version": "1.0.0",
-  "description": "node starter via express",
+  "description": "clothing store api",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "nodemon server.js"
   },
   "keywords": [
-    "api"
+    "API"
   ],
-  "author": "jeriosll",
+  "author": "xxjhericxx",
   "license": "MIT",
   "dependencies": {
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "mysql2": "^3.4.3",
+    "mysql2": "^3.5.1",
     "nodemon": "^2.0.22",
     "sequelize": "^6.32.1"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.1"
   }
 }
