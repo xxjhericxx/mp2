@@ -10,28 +10,27 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       productCode: {
-        type: DataTypes.STRING,
-        autoIncrement: true,
+        type: Sequelize.STRING,
         allowNull: false
       },
       productName: {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
         allowNull: false
       },
       productDescription: {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
         allowNull: false
       },
       productCategory: {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
         allowNull: false
       },
       productPrice: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         allowNull: false
       },
       productQuantity: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         allowNull: false
       },
       createdAt: {
