@@ -1,44 +1,31 @@
-// tutorial.routes.js
+// product.routes.js
 module.exports = (app) => {
-  // resource group --> RESTful --> CRUD
-  // 1. create
-  // 2. read
-  // 3. update
-  // 4. delete
 
-  // HTTP VERBS
-  // post *Create (create)
-  // get *Read (getOne, getAll)
-  // put *Update (put|patch) (update)
-  // delete *Delete (deleteOne, deleteAll)
-
-  const tutorials = require('../controllers/tutorial.controller');
+  const products = require('../controllers/product.controller');
 
   let router = require('express').Router();
 
-  // create new tutorial
-  router.post('/', tutorials.create);
+  // create new product
+  router.post('/', products.create);
 
-  // retrieve all tutorials
-  router.get('/', tutorials.findAll);
+  // retrieve all products
+  router.get('/', products.findAll);
 
-  // retrive one tutorial via id
-  router.get('/:id', tutorials.findOne);
+  // retrive one product via id
+  router.get('/:id', products.findOne);
 
-  // update one tutorial
-  router.put('/:id', tutorials.update);
+  // update one product
+  router.put('/:id', products.update);
 
-  // delete all tutorials
-  router.delete('/', tutorials.deleteAll);
+  // delete all products
+  router.delete('/', products.deleteAll);
 
-  // delete one tutorial via id
-  router.delete('/:id', tutorials.deleteOne);
+  // delete one product via id
+  router.delete('/:id', products.deleteOne);
 
   // use the router
-  app.use('/api/tutorials', router);
+  app.use('/api/products', router);
 
-  // curl -l <address> --> GET
-  // curl -X POST|PUT|DELETE <address>
 };
 
 
