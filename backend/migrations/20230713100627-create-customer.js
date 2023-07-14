@@ -18,7 +18,7 @@ module.exports = {
         allowNull: false
       },
       customerImage:{
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
         allowNull: true
       },
       customerAddress: {
