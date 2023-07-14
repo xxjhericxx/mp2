@@ -207,11 +207,11 @@ exports.updateAvatar = (req, res) => {
 
   // construct data
   const product = {
-    avatar: avatarUrl
+    productImage: avatarUrl
   }
 
   // save to db
-  Product.update(product, {where: {id: id}})
+  Product.update(product, {where: {productId: id}})
     .then(num => {
       if (num && num[0] && num >= 1) {
         res.status(200).send({
@@ -225,7 +225,7 @@ exports.updateAvatar = (req, res) => {
       } else {
         res.status(400).send({
           success: false,
-          message: `Cannot find product data with id = ${id}, update data ignored.`,
+          message: `Cannot find customer data with id = ${id}, update data ignored.`,
           errorCode: `ERR7002`
         });
       }
