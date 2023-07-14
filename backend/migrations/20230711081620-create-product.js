@@ -25,12 +25,17 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
+      productImage:{
+        type: Sequelize.STRING,
+        allowNull: true
+      },
       productPrice: {
         type: Sequelize.INTEGER,
         allowNull: false
       },
       productQuantity: {
         type: Sequelize.INTEGER,
+        defaultValue: 0,
         allowNull: false
       },
       createdAt: {

@@ -1,12 +1,12 @@
 const db = require('../models');
-const Product = db.Product;
+const Customer = db.Customer;
 
-// create and save a product
+// create and save a customer
 exports.create = (req, res) => {
   // validate
-  if(!req.body.productCode || !req.body.productDescription || !req.body.productName || !req.body.productCategory || !req.body.productPrice) {
+  if(!req.body.customerFirstName || !req.body.customerLastName || !req.body.customerAddress || !req.body.customerZipCode || !req.body.customerCountry || !req.body.customerPhoneNumber || !req.body.customerEmailAddress ) {
     res.status(400).send({
-      message: `Some product information cannot be empty.`,
+      message: `Some customer information cannot be empty.`,
       success: false,
       errorCode: `ERR9001`
     });
@@ -14,37 +14,35 @@ exports.create = (req, res) => {
   }
 
   // create object in memory
-  const {productCode, productDescription, productName, productCategory, productImage, productPrice, productQuantity} = req.body;
-  const product = {
-    productCode, productDescription, productName, productCategory, productImage, productPrice, productQuantity
+  const {customerFirstName, customerLastName, customerImage, customerAddress, customerZipCode, customerCountry, customerPhoneNumber, customerEmailAddress} = req.body;
+  const customer = {
+    customerFirstName, customerLastName, customerImage, customerAddress, customerZipCode, customerCountry, customerPhoneNumber, customerEmailAddress
   };
-  product.productImage = productImage || product.productImage;
-  product.productQuantity = productQuantity || product.productQuantity;
-  
+  customer.customerImage = customerImage || customer.customerImage;
 
   // save to db
-  Product.create(product)
+  Customer.create(customer)
     .then(data => {
       res.status(200).send({
         success: true,
-        message: 'Product saved successfully.',
+        message: 'Customer saved successfully.',
         data: data
       });
     })
     .catch(error => {
       res.status(500).send({
         success: false,
-        message: `Saving of Product data failed. Error: ${error}`,
+        message: `Saving of Customer data failed. Error: ${error}`,
         errorCode: `ERR8001`,
       })
     });
 
 };
 
-// retrieve all products
+// retrieve all customers
 exports.findAll = (req, res) => { 
   // find and respond
-  Product.findAll()
+  Customer.findAll()
     .then(data => {
       res.status(200).send({
         success: true,
@@ -54,18 +52,18 @@ exports.findAll = (req, res) => {
     .catch(error => {
       res.status(500).send({
         success: false,
-        message: `Cannot retrieve product records. Error: ${error}`,
+        message: `Cannot retrieve customer records. Error: ${error}`,
         errorCode: `ERR8002`,
       })
     });
 };
 
-// retrieve a single product 
+// retrieve a single customer 
 exports.findOne = (req, res) => {
   // find and respond
   const id = req.params.id;
 
-  Product.findByPk(id)
+  Customer.findByPk(id)
     .then(data => {
       if (data) {
         res.status(200).send({
@@ -75,7 +73,7 @@ exports.findOne = (req, res) => {
       } else {
         res.status(400).send({
           success: false,
-          message: `Cannot find product data with id = ${id}`,
+          message: `Cannot find customer data with id = ${id}`,
           errorCode: `ERR7001`
         });
       }
@@ -83,19 +81,19 @@ exports.findOne = (req, res) => {
     .catch(error => {
       res.status(500).send({
         success: false,
-        message: `Cannot retrieve product record. Error: ${error}`,
+        message: `Cannot retrieve customer record. Error: ${error}`,
         errorCode: `ERR8003`,
       })
     });
 
 };
 
-// update a product
+// update a customer
 exports.update = (req, res) => { 
   // validate
-  if(!req.body.productCode || !req.body.productDescription || !req.body.productName || !req.body.productCategory || !req.body.productPrice) {
+  if(!req.body.customerFirstName || !req.body.customerLastName || !req.body.customerAddress || !req.body.customerZipCode || !req.body.customerCountry || !req.body.customerPhoneNumber || !req.body.customerEmailAddress ) {
     res.status(400).send({
-      message: `Some product information cannot be empty.`,
+      message: `Some customer information cannot be empty.`,
       success: false,
       errorCode: `ERR9001`
     });
@@ -106,20 +104,18 @@ exports.update = (req, res) => {
   const id = req.params.id;
 
   // create object in memory
-  const {productCode, productDescription, productName, productCategory, productImage, productPrice, productQuantity} = req.body;
-  const product = {
-    productCode, productDescription, productName, productCategory, productImage, productPrice, productQuantity
+  const {customerFirstName, customerLastName, customerAddress, customerZipCode, customerCountry, customerPhoneNumber, customerEmailAddress} = req.body;
+  const customer = {
+    customerFirstName, customerLastName, customerAddress, customerZipCode, customerCountry, customerPhoneNumber, customerEmailAddress
   };
-  product.productImage = productImage || product.productImage;
-  product.productQuantity = productQuantity || product.productQuantity;
 
   // save to db
-  Product.update(product, {where: {productId : id}})
+  Customer.update(customer, {where: {customerId : id}})
     .then(num => {
       if (num && num[0] && num >= 1) {
         res.status(200).send({
           success: true,
-          message: 'Product updated successfully.',
+          message: 'Customer updated successfully.',
           data: {
             id: id,
             recordsAffected: num && num[0] ? num[0] : 1
@@ -128,7 +124,7 @@ exports.update = (req, res) => {
       } else {
         res.status(400).send({
           success: false,
-          message: `Cannot find product data with id = ${id}, update data ignored.`,
+          message: `Cannot find customer data with id = ${id}, update data ignored.`,
           errorCode: `ERR7002`
         });
       }
@@ -142,13 +138,13 @@ exports.update = (req, res) => {
     });
 };
 
-// delete all products
+// delete all customers
 exports.deleteAll = (req, res) => {
-  Product.destroy({where: {}, trucate: true})
+  Customer.destroy({where: {}, trucate: true})
     .then(nums => {
       res.status(200).send({
         success: true,
-        message: `${nums} product${nums > 1 ? 's' : ''} deleted successfully.`,
+        message: `${nums} customer${nums > 1 ? 's' : ''} deleted successfully.`,
         data: {
           recordsAffected: nums
         }
@@ -163,27 +159,27 @@ exports.deleteAll = (req, res) => {
     });
 };
 
-// delete a single product
+// delete a single customer
 exports.deleteOne = (req, res) => {
   // get id
   const id = req.params.id;
 
   // save to db and respond
-  Product.destroy({ where: {productId : id}})
+  Customer.destroy({ where: {customerId : id}})
     .then(num => {
       if (num >= 1) {
         res.status(200).send({
           success: true,
-          message: 'Product deleted successfully.',
+          message: 'Customer deleted successfully.',
           data: {
-            productId: id,
+            customerId: id,
             recordsAffected: num
           }
         });
       } else {
         res.status(400).send({
           success: false,
-          message: `Cannot delete product data with id = ${id}, delete request ignored.`,
+          message: `Cannot delete customer data with id = ${id}, delete request ignored.`,
           errorCode: `ERR7003`
         });
       }
@@ -206,12 +202,12 @@ exports.updateAvatar = (req, res) => {
   const id = req.params.id;
 
   // construct data
-  const product = {
-    avatar: avatarUrl
+  const customer = {
+    customerImage: avatarUrl
   }
 
   // save to db
-  Product.update(product, {where: {id: id}})
+  Customer.update(customer, {where: {customerId: id}})
     .then(num => {
       if (num && num[0] && num >= 1) {
         res.status(200).send({
@@ -225,7 +221,7 @@ exports.updateAvatar = (req, res) => {
       } else {
         res.status(400).send({
           success: false,
-          message: `Cannot find product data with id = ${id}, update data ignored.`,
+          message: `Cannot find customer data with id = ${id}, update data ignored.`,
           errorCode: `ERR7002`
         });
       }

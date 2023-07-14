@@ -27,3 +27,11 @@ module.exports = (app) => {
   app.use('/api/products', router);
 
 };
+
+
+
+// :discussion
+// entity ---> model
+// MVC-R
+// Model    - View        - Controller     - Routes
+// DB Table - Pages (SPA) - Business Logic - Address/Endpoint
