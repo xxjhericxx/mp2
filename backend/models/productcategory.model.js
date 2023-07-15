@@ -30,6 +30,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     productCategoryQuantity: {
       type: DataTypes.INTEGER,
+      defaultValue: 0,
       allowNull: false
     }
   }, {
