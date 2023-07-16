@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { BsPlus, BsEyeFill } from 'react-icons/bs';
 
 const Product = ({ product }) => {
-  console.log(product);
   //destructure product
   const { id, image, category, title, price } = product;
   return (
@@ -30,7 +29,7 @@ const Product = ({ product }) => {
             </div>
           </button>
           <Link
-            to={`/product/${id}`}
+            to={`/products/${id}`}
             className='w-12 h-12 bg-white flex justify-center items-center text-primary drop-shadow-xl'
           >
             <BsEyeFill />
