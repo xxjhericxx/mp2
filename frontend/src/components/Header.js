@@ -33,6 +33,26 @@ const Header = () => {
           <img className='w-[40px]' src={Logo} alt="" />
         </div>
       </Link>
+      {/* seperator divs */}
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
       {/* cart */}
       <div 
         onClick={() => setIsOpen(!isOpen)}
