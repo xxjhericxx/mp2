@@ -20,8 +20,9 @@ db.sequelize.sync().then(() => {
 
 // routes
 require(`./routes/products.routes`)(app);
-require(`./routes/customers.routes`)(app);
 require(`./routes/productCategories.routes`)(app);
+require(`./routes/customers.routes`)(app);
+require(`./routes/customerOrders.routes`)(app);
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
