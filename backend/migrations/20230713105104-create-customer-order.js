@@ -18,6 +18,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
+      productPrice: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
       orderQuantity: {
         type: Sequelize.INTEGER,
         allowNull: false
