@@ -3,10 +3,15 @@ if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 
 // entry point
 const express = require(`express`);
+const cors = require('cors');
 
 const app = express();
+const corsOptions = {
+  origin: ['http://localhost:3000', '*']
+};
 
 // configure server
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded());
 
