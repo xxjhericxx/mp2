@@ -26,30 +26,32 @@ const Header = () => {
     <header className={`${isActive ? 'bg-white py-4 shadow-md' : 'bg-none py-6'} 
     fixed w-full z-10 transition-all`}
     >
-      <div className='container mx-auto flex items-center justify-between h-full'>
+        <div className='container mx-auto flex h-full' style={{justifyContent: 'space-between'}}>
       {/* logo */}
       <Link to={'/'}>
-        <div>
           <img className='w-[40px]' src={Logo} alt="" />
-        </div>
       </Link>
       {/* cart */}
+        <div className='display flex'>
       <div 
         onClick={() => setIsOpen(!isOpen)}
         className='cursor-pointer flex relative'
       >
         <BsBag className='text-2xl'/>
         <div className='bg-red-500 absolute -right-2
-        -bottom-2 text-[12px] w-[18px] h-[18px] text-white rounded-full
-        flex justify-center items-center'>
+        -bottom-0 text-[12px] w-[18px] h-[18px] text-white rounded-full
+        flex justify-center'>
           {itemAmount}
         </div>
       </div>
       {/* Login */}
-      <div className='cursor-pointer flex relative'>
-          <MdLogin className='text-2xl' />
+          <Link className='cursor-pointer flex relative' style={{paddingLeft: '60px'}}>
+            <a href='/'>
+              <MdLogin className='text-2xl' />
+            </a>
+          </Link>
         </div>
-    </div>
+      </div>
     </header>
   );
 };
