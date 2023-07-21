@@ -32,7 +32,7 @@ const Product = ({ product }) => {
             </div>
           </button>
           <Link
-            to={`/products/${id}`}
+            to={`/product/${id}`}
             className='w-12 h-12 bg-white flex justify-center items-center text-primary drop-shadow-xl'
           >
             <BsEyeFill />
@@ -42,7 +42,7 @@ const Product = ({ product }) => {
       {/* category & title & price */}
       <div>
         <div className='text-sm capitalize text-gray-500 mb-1'>{category}</div>
-        <Link to ={`/products/${id}`}>
+        <Link to ={`/product/${id}`}>
           <h2 className='font-semibold mb-1'>{title}</h2>
         </Link>
         <div className='font-semibold'>$ {price}</div>
