@@ -19,7 +19,7 @@ module.exports = {
         allowNull: false
       },
       productPrice: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.FLOAT,
         allowNull: false
       },
       orderQuantity: {
