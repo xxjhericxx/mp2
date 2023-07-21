@@ -17,8 +17,8 @@ module.exports = (app) => {
   // update one customer
   router.put('/:id', customers.update);
 
-  // update avatar of one customer via id
-  router.put('/:id', customers.updateAvatar);
+  // upload a customer image
+  router.post('/:id/image', upload.single('image'), customers.updateCustomerImage);
 
   // delete all customers
   router.delete('/', customers.deleteAll);

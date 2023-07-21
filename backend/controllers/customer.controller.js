@@ -194,8 +194,8 @@ exports.deleteOne = (req, res) => {
     });
 };
 
-// upload avatar image
-exports.updateAvatar = (req, res) => {
+// upload customer image
+exports.updateCustomerImage = (req, res) => {
   // construct url
   const avatarUrl = `uploads/${req.file.filename}`;
 
