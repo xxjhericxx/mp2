@@ -36,7 +36,7 @@ module.exports = {
       productQuantity: {
         type: Sequelize.INTEGER,
         defaultValue: 0,
-        allowNull: false
+        allowNull: true
       },
       createdAt: {
         allowNull: false,
