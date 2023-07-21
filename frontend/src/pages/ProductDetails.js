@@ -5,6 +5,10 @@ import { useParams } from 'react-router-dom';
 import { CartContext } from '../contexts/CartContext';
 // import product context
 import { ProductContext } from '../contexts/ProductContext';
+// import components
+import Sidebar from '../components/Sidebar';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const ProductDetails = () => {
   // get the product id from the url
@@ -29,6 +33,9 @@ const ProductDetails = () => {
   // destructure product
   const { title, price, description, image } = product;
   return (
+    <div>
+    <Header />
+    <Sidebar />
     <section className='pt-32 pb-12 lg:py-32 h-screen flex items-center'>
       <div className='container mx-auto'>
         {/* image & text wrapper */}
@@ -60,6 +67,8 @@ const ProductDetails = () => {
         </div>
       </div>
     </section>
+    <Footer />
+    </div>
   );
 };
 

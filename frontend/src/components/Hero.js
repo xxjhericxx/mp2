@@ -1,6 +1,6 @@
 import React from 'react';
 // import images
-import WomanImg from '../img/woman_hero.png';
+import WomanImg2 from '../img/woman_hero2.png';
 // import link
 import { Link } from 'react-router-dom';
 
@@ -29,7 +29,7 @@ const Hero = () => {
           </div>
         {/* image */}
         <div className='hidden lg:block'>
-          <img src={WomanImg} alt='' />
+          <img src={WomanImg2} alt='' style={{transform: 'translateY(-45px)'}}/>
         </div>
       </div>
     </section>
