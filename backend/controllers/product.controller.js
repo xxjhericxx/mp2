@@ -197,8 +197,8 @@ exports.deleteOne = (req, res) => {
     });
 };
 
-// upload avatar image
-exports.updateAvatar = (req, res) => {
+// upload product image
+exports.updateProductImage = (req, res) => {
   // construct url
   const avatarUrl = `uploads/${req.file.filename}`;
 
@@ -216,7 +216,7 @@ exports.updateAvatar = (req, res) => {
       if (num && num[0] && num >= 1) {
         res.status(200).send({
           success: true,
-          message: 'Avatar updated successfully.',
+          message: 'Product image updated successfully.',
           data: {
             id: id,
             recordsAffected: num && num[0] ? num[0] : 1

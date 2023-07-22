@@ -17,6 +17,9 @@ module.exports = (app) => {
   // update one product
   router.put('/:id', products.update);
 
+  // upload a product image
+  router.post('/:id/image', upload.single('image'), products.updateProductImage);
+
   // delete all products
   router.delete('/', products.deleteAll);
 
