@@ -4,7 +4,7 @@ const ProductCategory = db.ProductCategory;
 // create and save a productCategory
 exports.create = (req, res) => {
   // validate
-  if(!req.body.productCategoryTitle || !req.body.productCategoryDescription || !req.body.productCategoryQuantity) {
+  if(!req.body.productCategoryTitle) {
     res.status(400).send({
       message: `Some productCategory information cannot be empty.`,
       success: false,
@@ -14,11 +14,10 @@ exports.create = (req, res) => {
   }
 
   // create object in memory
-  const {productCategoryTitle, productCategoryDescription, productCategoryQuantity} = req.body;
+  const {productCategoryTitle} = req.body;
   const productCategory = {
-    productCategoryTitle, productCategoryDescription, productCategoryQuantity
+    productCategoryTitle
   };
-  productCategory.productCategoryQuantity = productCategoryQuantity || productCategory.productCategoryQuantity;
 
   // save to db
   ProductCategory.create(productCategory)
@@ -73,7 +72,7 @@ exports.findOne = (req, res) => {
       } else {
         res.status(400).send({
           success: false,
-          message: `Cannot find productCategory data with id = ${id}`,
+          message: `Cannot find product category data with id = ${id}`,
           errorCode: `ERR7001`
         });
       }
@@ -81,7 +80,7 @@ exports.findOne = (req, res) => {
     .catch(error => {
       res.status(500).send({
         success: false,
-        message: `Cannot retrieve productCategory record. Error: ${error}`,
+        message: `Cannot retrieve product category record. Error: ${error}`,
         errorCode: `ERR8003`,
       })
     });
@@ -91,7 +90,7 @@ exports.findOne = (req, res) => {
 // update a productCategory
 exports.update = (req, res) => { 
   // validate
-  if(!req.body.productCategoryTitle || !req.body.productCategoryDescription || !req.body.productCategoryQuantity) {
+  if(!req.body.productCategoryTitle) {
     res.status(400).send({
       message: `Some productCategory information cannot be empty.`,
       success: false,
@@ -104,9 +103,9 @@ exports.update = (req, res) => {
   const id = req.params.id;
 
   // create object in memory
-  const {productCategoryTitle, productCategoryDescription, productCategoryQuantity} = req.body;
+  const {productCategoryTitle} = req.body;
   const productCategory = {
-    productCategoryTitle, productCategoryDescription, productCategoryQuantity
+    productCategoryTitle
   };
 
   // save to db
