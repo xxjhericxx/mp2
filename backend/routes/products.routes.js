@@ -1,3 +1,5 @@
+const { upload } = require('../middlewares/multer/upload.middleware');
+
 // product.routes.js
 module.exports = (app) => {
 
@@ -17,6 +19,9 @@ module.exports = (app) => {
   // update one product
   router.put('/:id', products.update);
 
+  // upload a product image
+  router.post('/:id/image', upload.single('image'), products.updateProductImage);
+
   // delete all products
   router.delete('/', products.deleteAll);
 
@@ -27,11 +32,3 @@ module.exports = (app) => {
   app.use('/api/products', router);
 
 };
-
-
-
-// :discussion
-// entity ---> model
-// MVC-R
-// Model    - View        - Controller     - Routes
-// DB Table - Pages (SPA) - Business Logic - Address/Endpoint
