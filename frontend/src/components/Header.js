@@ -4,8 +4,7 @@ import { SidebarContext } from "../contexts/SidebarContext";
 // cart context
 import { CartContext } from "../contexts/CartContext";
 // import icons
-import { BsBag } from 'react-icons/bs';
-import { MdLogin } from 'react-icons/md';
+import { MdLogin, MdOutlineShoppingBag } from 'react-icons/md';
 // import link
 import { Link } from 'react-router-dom';
 // import logo
@@ -37,7 +36,7 @@ const Header = () => {
         onClick={() => setIsOpen(!isOpen)}
         className='cursor-pointer flex relative'
       >
-        <BsBag className='text-2xl'/>
+        <MdOutlineShoppingBag className='text-3xl'/>
         <div className='bg-red-500 absolute -right-2
         -bottom-0 text-[12px] w-[18px] h-[18px] text-white rounded-full
         flex justify-center'>
@@ -45,7 +44,7 @@ const Header = () => {
         </div>
       </div>
       {/* Login */}
-          <Link className='cursor-pointer flex relative' style={{paddingLeft: '60px'}}>
+          <Link to={'/login'} className='cursor-pointer flex relative' style={{paddingLeft: '60px'}}>
             <a href='/'>
               <MdLogin className='text-3xl' />
             </a>

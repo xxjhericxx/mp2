@@ -21,7 +21,7 @@ const Hero = () => {
               <span className='font-semibold'>WOMENS</span>
             </h1>
             <Link
-              to={'/'}
+              to={'/product'}
               className='self-start uppercase font-semibold border-b-2 border-primary'
             >
               Discover more
