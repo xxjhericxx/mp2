@@ -10,26 +10,29 @@ const LoginPage = () => {
         </div>
 
         <div className='bg-red-400 flex flex-col justify-center'>
-          <form className='max-w-[400px] w-full mx-auto bg-gray-100 p-8 px-8 rounded-lg'>
-            <h2 className='text-4xl dark:text-black font-bold text-center'>SIGN IN</h2>
-            <div className='flex flex-col text-gray-900 py-2'>
-              <label>Email</label>
-              <input 
-              className='rounded-lg bg-gray-300 mt-2 p-2 focus:outline-black focus:bg-gray-100' 
-              type="text" />
-            </div>
-            <div className='flex flex-col text-gray-900 py-2'>
-              <label>Password</label>
-              <input 
-              className='rounded-lg bg-gray-300 mt-2 p-2 focus:outline-black focus:bg-gray-100' 
-              type="password" />
-            </div>
-            <div>
-              <p><input type="checkbox" /> Remember Me</p>
-              <p>Forgot Password?</p>
-            </div>
-            <button>Sign In</button>
-          </form>
+        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+        Username
+      </label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username" />
+    </div>
+    <div class="mb-6">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+        Password
+      </label>
+      <input class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" />
+      <p class="text-red-500 text-xs italic">Please choose a password.</p>
+    </div>
+    <div class="flex items-center justify-between">
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+        Sign In
+      </button>
+      <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="/">
+        Forgot Password?
+      </a>
+    </div>
+  </form>
         </div>
       </div>
   );

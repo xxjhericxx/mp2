@@ -1,6 +1,6 @@
 export const PRODUCTS = [
-  { name: "Men's Clothing", link: "#" },
-  { name: "Women's Clothing", link: "#" }
+  { name: "Men's Clothing", link: "/product/men" },
+  { name: "Women's Clothing", link: "/product/women" }
 ];
 export const COMPANY = [
   { name: "About us", link: "#" },

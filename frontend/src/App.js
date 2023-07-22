@@ -8,6 +8,10 @@ import Home from './pages/Home';
 import ProductDetails from './pages/ProductDetails';
 import Admin from './pages/Admin';
 import Login from './pages/Login';
+import Signup from './pages/SignUp';
+import Product from './pages/Product';
+import ProductMen from './pages/ProductM';
+import ProductWomen from './pages/ProductW';
 
 
 const App = () => {
@@ -21,6 +25,10 @@ const App = () => {
         <Route path='/product/:id' element={<ProductDetails />} />
         <Route path='/admin' element={<Admin />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<Signup />} />
+        <Route path='/product' element={<Product />} />
+        <Route path='/product/men' element={<ProductMen />} />
+        <Route path='/product/women' element={<ProductWomen />} />
       </Routes>
     </Router>
     <Router>
