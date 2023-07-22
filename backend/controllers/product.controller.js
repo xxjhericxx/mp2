@@ -216,7 +216,7 @@ exports.updateProductImage = (req, res) => {
       if (num && num[0] && num >= 1) {
         res.status(200).send({
           success: true,
-          message: 'Avatar updated successfully.',
+          message: 'Product image updated successfully.',
           data: {
             id: id,
             recordsAffected: num && num[0] ? num[0] : 1
