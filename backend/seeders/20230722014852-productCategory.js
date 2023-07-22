@@ -4,22 +4,34 @@
 module.exports = {
   async up (queryInterface, Sequelize) {  
     await queryInterface.bulkInsert('ProductCategories', [{
-      productCategoryTitle: "Shirts"
+      productCategoryTitle: "Shirts",
+      createdAt: new Date(),
+      updatedAt: new Date()
      },
     {
-      productCategoryTitle: "Jackets"
+      productCategoryTitle: "Jackets",
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
-      productCategoryTitle: "Pants"
+      productCategoryTitle: "Pants",
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
-      productCategoryTitle: "Bags"
+      productCategoryTitle: "Bags",
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
-      productCategoryTitle: "Shorts"
+      productCategoryTitle: "Shorts",
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
-      productCategoryTitle: "Accessories"
+      productCategoryTitle: "Accessories",
+      createdAt: new Date(),
+      updatedAt: new Date()
     }
     ], {});
     
