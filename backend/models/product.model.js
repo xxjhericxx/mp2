@@ -41,13 +41,13 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true
     },
     productPrice: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.FLOAT,
       allowNull: false
     },
     productQuantity: {
       type: DataTypes.INTEGER,
       defaultValue: 0,
-      allowNull: false
+      allowNull: true
     }
   }, {
     sequelize,

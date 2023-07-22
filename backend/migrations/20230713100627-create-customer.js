@@ -35,7 +35,7 @@ module.exports = {
       },
       customerPhoneNumber: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
       },
       customerEmailAddress: {
         type: Sequelize.STRING,

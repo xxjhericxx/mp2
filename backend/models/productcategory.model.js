@@ -23,15 +23,6 @@ module.exports = (sequelize, DataTypes) => {
     productCategoryTitle: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    productCategoryDescription: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    productCategoryQuantity: {
-      type: DataTypes.INTEGER,
-      defaultValue: 0,
-      allowNull: false
     }
   }, {
     sequelize,

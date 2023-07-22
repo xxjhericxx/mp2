@@ -4,7 +4,7 @@ const Customer = db.Customer;
 // create and save a customer
 exports.create = (req, res) => {
   // validate
-  if(!req.body.customerFirstName || !req.body.customerLastName || !req.body.customerAddress || !req.body.customerZipCode || !req.body.customerCountry || !req.body.customerPhoneNumber || !req.body.customerEmailAddress ) {
+  if(!req.body.customerFirstName || !req.body.customerLastName || !req.body.customerAddress || !req.body.customerZipCode || !req.body.customerCountry || !req.body.customerEmailAddress ) {
     res.status(400).send({
       message: `Some customer information cannot be empty.`,
       success: false,
@@ -19,6 +19,7 @@ exports.create = (req, res) => {
     customerFirstName, customerLastName, customerImage, customerAddress, customerZipCode, customerCountry, customerPhoneNumber, customerEmailAddress
   };
   customer.customerImage = customerImage || customer.customerImage;
+  customer.customerPhoneNumber = customerPhoneNumber || customer.customerPhoneNumber;
 
   // save to db
   Customer.create(customer)
@@ -193,8 +194,8 @@ exports.deleteOne = (req, res) => {
     });
 };
 
-// upload avatar image
-exports.updateAvatar = (req, res) => {
+// upload customer image
+exports.updateCustomerImage = (req, res) => {
   // construct url
   const avatarUrl = `uploads/${req.file.filename}`;
 
@@ -212,7 +213,7 @@ exports.updateAvatar = (req, res) => {
       if (num && num[0] && num >= 1) {
         res.status(200).send({
           success: true,
-          message: 'Avatar updated successfully.',
+          message: 'Customer image updated successfully.',
           data: {
             id: id,
             recordsAffected: num && num[0] ? num[0] : 1

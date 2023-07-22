@@ -13,15 +13,6 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      productCategoryDescription: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      productCategoryQuantity: {
-        type: Sequelize.INTEGER,
-        defaultValue: 0,
-        allowNull: false
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
