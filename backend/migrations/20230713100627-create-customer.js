@@ -23,21 +23,25 @@ module.exports = {
       },
       customerAddress: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
       },
       customerZipCode: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
       },
       customerCountry: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
       },
       customerPhoneNumber: {
         type: Sequelize.STRING,
         allowNull: true
       },
       customerEmailAddress: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      customerPassword: {
         type: Sequelize.STRING,
         allowNull: false
       },
