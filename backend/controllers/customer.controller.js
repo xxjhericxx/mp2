@@ -4,7 +4,7 @@ const Customer = db.Customer;
 // create and save a customer
 exports.create = (req, res) => {
   // validate
-  if(!req.body.customerFirstName || !req.body.customerLastName || !req.body.customerAddress || !req.body.customerZipCode || !req.body.customerCountry || !req.body.customerEmailAddress ) {
+  if(!req.body.customerFirstName || !req.body.customerLastName || !req.body.customerEmailAddress || !req.body.customerPassword ) {
     res.status(400).send({
       message: `Some customer information cannot be empty.`,
       success: false,
@@ -14,11 +14,14 @@ exports.create = (req, res) => {
   }
 
   // create object in memory
-  const {customerFirstName, customerLastName, customerImage, customerAddress, customerZipCode, customerCountry, customerPhoneNumber, customerEmailAddress} = req.body;
+  const {customerFirstName, customerLastName, customerImage, customerAddress, customerZipCode, customerCountry, customerPhoneNumber, customerEmailAddress, customerPassword} = req.body;
   const customer = {
-    customerFirstName, customerLastName, customerImage, customerAddress, customerZipCode, customerCountry, customerPhoneNumber, customerEmailAddress
+    customerFirstName, customerLastName, customerImage, customerAddress, customerZipCode, customerCountry, customerPhoneNumber, customerEmailAddress, customerPassword
   };
   customer.customerImage = customerImage || customer.customerImage;
+  customer.customerAddress = customerAddress || customer.customerAddress;
+  customer.customerZipCode = customerZipCode || customer.customerZipCode;
+  customer.customerCountry = customerCountry || customer.customerCountry;
   customer.customerPhoneNumber = customerPhoneNumber || customer.customerPhoneNumber;
 
   // save to db
@@ -92,7 +95,7 @@ exports.findOne = (req, res) => {
 // update a customer
 exports.update = (req, res) => { 
   // validate
-  if(!req.body.customerFirstName || !req.body.customerLastName || !req.body.customerAddress || !req.body.customerZipCode || !req.body.customerCountry || !req.body.customerPhoneNumber || !req.body.customerEmailAddress ) {
+  if(!req.body.customerFirstName || !req.body.customerLastName || !req.body.customerEmailAddress || !req.body.customerPassword ) {
     res.status(400).send({
       message: `Some customer information cannot be empty.`,
       success: false,
@@ -104,11 +107,16 @@ exports.update = (req, res) => {
   // get id
   const id = req.params.id;
 
-  // create object in memory
-  const {customerFirstName, customerLastName, customerAddress, customerZipCode, customerCountry, customerPhoneNumber, customerEmailAddress} = req.body;
-  const customer = {
-    customerFirstName, customerLastName, customerAddress, customerZipCode, customerCountry, customerPhoneNumber, customerEmailAddress
-  };
+    // create object in memory
+    const {customerFirstName, customerLastName, customerImage, customerAddress, customerZipCode, customerCountry, customerPhoneNumber, customerEmailAddress, customerPassword} = req.body;
+    const customer = {
+      customerFirstName, customerLastName, customerImage, customerAddress, customerZipCode, customerCountry, customerPhoneNumber, customerEmailAddress, customerPassword
+    };
+    customer.customerImage = customerImage || customer.customerImage;
+    customer.customerAddress = customerAddress || customer.customerAddress;
+    customer.customerZipCode = customerZipCode || customer.customerZipCode;
+    customer.customerCountry = customerCountry || customer.customerCountry;
+    customer.customerPhoneNumber = customerPhoneNumber || customer.customerPhoneNumber;
 
   // save to db
   Customer.update(customer, {where: {customerId : id}})
