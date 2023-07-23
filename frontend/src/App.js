@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 // import pages
 import Home from './pages/Home';
+import Cart from './pages/Cart';
 import ProductDetails from './pages/ProductDetails';
 import Admin from './pages/Admin';
 import Login from './pages/Login';
@@ -30,6 +31,7 @@ const App = () => {
         <Route path='/product/men' element={<ProductMen />} />
         <Route path='/product/women' element={<ProductWomen />} />
         <Route path='/home' element={<Home />} />
+        <Route path='/cart' element={<Cart />} />
       </Routes>
     </Router>
     <Router>
