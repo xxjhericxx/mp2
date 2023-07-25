@@ -63,7 +63,7 @@ module.exports = {
       productName: "Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket",
       productDescription: "100% POLYURETHANE(shell) 100% POLYESTER(lining) 75% POLYESTER 25% COTTON (SWEATER), Faux leather material for style and comfort / 2 pockets of front, 2-For-One Hooded denim style faux leather jacket, Button detail on waist / Detail stitching at sides, HAND WASH ONLY / DO NOT BLEACH / LINE DRY / DO NOT IRON",
       productCategory: "Jacket",
-      productImage: "uploads/1689950948567_77450854.jpg",
+      productImage: "uploads/1689950955966_92403020.jpg",
       productPrice: 29.95,
       productQuantity: 100,
       createdAt: new Date(),
