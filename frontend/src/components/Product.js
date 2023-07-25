@@ -11,7 +11,7 @@ const Product = ({ product }) => {
   const { addToCart } = useContext(CartContext)
   //destructure product
   const { productId, productCode, productName, productDescription, productCategory, productImage, productPrice, productQuantity } = product;
-  console.log(productId, productCode, productName, productDescription, productCategory, productImage, productPrice, productQuantity)
+  // console.log(productId, productCode, productName, productDescription, productCategory, productImage, productPrice, productQuantity)
   return (
     <div>
       <div className='border border-[#e4e4e4] h-[300px] mb-4 relative overflow-hidden group transition'>
