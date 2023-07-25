@@ -9,6 +9,7 @@ import { ProductContext } from '../contexts/ProductContext';
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import constants from '../contexts/constants';
 
 const ProductDetails = () => {
   // get the product id from the url
@@ -18,7 +19,7 @@ const ProductDetails = () => {
 
   //get the product based on its id
   const product = products.find((item) => {
-    return item.id === parseInt(id);
+    return item.productId === parseInt(id);
   });
 
   // if product is not found
@@ -31,7 +32,7 @@ const ProductDetails = () => {
   }
 
   // destructure product
-  const { title, price, description, image } = product;
+  const { productName, productPrice, productDescription, productImage } = product;
   return (
     <div>
     <Header />
@@ -44,21 +45,21 @@ const ProductDetails = () => {
           <div className='flex flex-1 justify-center items-center mb-8 lg:mb-0'>
             <img 
               className='max-w-[200px] lg:max-w-sm'
-              src={image} alt='/' />
+              src={productImage ? `${constants.ENDPOINT}/${productImage}` : ''} alt='/' />
           </div>
           {/* text */}
           <div className='flex-1 text-center lg:text-left'>
             <h1 className='text-[26px] font-medium mb-2 max-w-[450px] mx-auto lg:mx-0'>
-              {title}
+              {productName}
             </h1>
             <div className='text-xl text-red-500 font-medium mb-6'>
-              $ {price}
+              $ {productPrice}
             </div>
             <p className='mb-8'>
-              {description}
+              {productDescription}
             </p>
             <button
-              onClick={() => addToCart(product, product.id)}
+              onClick={() => addToCart(product, product.productId)}
               className='bg-primary py-4 px-8 text-white'
             >
               Add to cart
