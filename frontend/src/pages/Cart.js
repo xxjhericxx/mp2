@@ -16,7 +16,6 @@ import { Link } from 'react-router-dom';
 const Home = () => {
   // get products from product context
   const { products } = useContext(ProductContext);
-  console.log(products);
   // get cart items to view
   const {cart, clearCart, total } = useContext(CartContext);
 
@@ -35,7 +34,7 @@ const Home = () => {
         <div className='flex flex-col gap-y-2 h-[520px] lg:h-[640px] overflow-y-auto 
       overflow-x-hidden border-b'>
         {cart.map((item) => {
-        return <CartItem item={item} key={item.id} />;
+        return <CartItem item={item} key={item.productId} />;
       })}
       </div>
       <div className='flex flex-col gap-y-3 py-4 mt-4'>
