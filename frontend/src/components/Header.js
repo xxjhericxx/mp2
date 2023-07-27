@@ -45,9 +45,7 @@ const Header = () => {
       </div>
       {/* Login */}
           <Link to={'/login'} className='cursor-pointer flex relative' style={{paddingLeft: '60px'}}>
-            <a href='/'>
-              <MdLogin className='text-3xl' />
-            </a>
+            <MdLogin className='text-3xl' />
           </Link>
         </div>
       </div>

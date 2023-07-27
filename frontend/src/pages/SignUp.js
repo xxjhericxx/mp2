@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SignUpPage = () => {
 	return (
@@ -8,7 +9,7 @@ const SignUpPage = () => {
 			<div>
 				<h1 className="text-white font-bold text-4xl font-sans">Ecom</h1>
 				<p className="text-white mt-1">Ecommerce Clothing Store Project</p>
-				<a href='/home' type="submit" className="block w-28 bg-white text-red-800 mt-4 py-2 rounded-2xl font-bold mb-2 text-center">Home</a>
+				<Link to='/home' type="submit" className="block w-28 bg-white text-red-800 mt-4 py-2 rounded-2xl font-bold mb-2 text-center">Home</Link>
 			</div>
 			<div className="absolute -bottom-32 -left-40 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
 			<div className="absolute -bottom-40 -left-20 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
@@ -32,7 +33,7 @@ const SignUpPage = () => {
 								<input className="pl-2 outline-none border-none" type="text" name="" id="" placeholder="Password" />
 						</div>
 						<button type="submit" className="block w-full bg-red-400 mt-4 py-2 rounded-2xl text-white font-semibold mb-2">Login</button>
-								<a href='/login' className="text-sm ml-2 hover:text-blue-500 cursor-pointer" >Already Have an Account ?</a>
+								<Link to='/login' className="text-sm ml-2 hover:text-blue-500 cursor-pointer" >Already Have an Account ?</Link>
 			</form>
 		</div>
 	</div>

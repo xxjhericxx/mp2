@@ -14,11 +14,12 @@ exports.create = (req, res) => {
   }
 
   // create object in memory
-  const {customerFirstName, customerLastName, customerImage, customerAddress, customerZipCode, customerCountry, customerPhoneNumber, customerEmailAddress, customerPassword} = req.body;
+  const {customerFirstName, customerLastName, customerImage, customerAddress, customerZipCode, customerCountry, customerPhoneNumber, customerEmailAddress, customerPassword, customerRole} = req.body;
   const customer = {
-    customerFirstName, customerLastName, customerImage, customerAddress, customerZipCode, customerCountry, customerPhoneNumber, customerEmailAddress, customerPassword
+    customerFirstName, customerLastName, customerImage, customerAddress, customerZipCode, customerCountry, customerPhoneNumber, customerEmailAddress, customerPassword, customerRole
   };
-  customer.customerImage = customerImage || customer.customerImage;
+  customer.customerImage = (customerImage ? customer.customerImage : "uploads/DEFAULT_USER_IMAGE.png");
+  customer.customerRole = (customerRole ? customer.customerRole : "basic");
   customer.customerAddress = customerAddress || customer.customerAddress;
   customer.customerZipCode = customerZipCode || customer.customerZipCode;
   customer.customerCountry = customerCountry || customer.customerCountry;
@@ -107,16 +108,17 @@ exports.update = (req, res) => {
   // get id
   const id = req.params.id;
 
-    // create object in memory
-    const {customerFirstName, customerLastName, customerImage, customerAddress, customerZipCode, customerCountry, customerPhoneNumber, customerEmailAddress, customerPassword} = req.body;
-    const customer = {
-      customerFirstName, customerLastName, customerImage, customerAddress, customerZipCode, customerCountry, customerPhoneNumber, customerEmailAddress, customerPassword
-    };
-    customer.customerImage = customerImage || customer.customerImage;
-    customer.customerAddress = customerAddress || customer.customerAddress;
-    customer.customerZipCode = customerZipCode || customer.customerZipCode;
-    customer.customerCountry = customerCountry || customer.customerCountry;
-    customer.customerPhoneNumber = customerPhoneNumber || customer.customerPhoneNumber;
+  // create object in memory
+  const {customerFirstName, customerLastName, customerImage, customerAddress, customerZipCode, customerCountry, customerPhoneNumber, customerEmailAddress, customerPassword, customerRole} = req.body;
+  const customer = {
+    customerFirstName, customerLastName, customerImage, customerAddress, customerZipCode, customerCountry, customerPhoneNumber, customerEmailAddress, customerPassword, customerRole
+  };
+  customer.customerImage = (customerImage ? customer.customerImage : "uploads/DEFAULT_USER_IMAGE.png");
+  customer.customerRole = (customerRole ? customer.customerRole : "basic");
+  customer.customerAddress = customerAddress || customer.customerAddress;
+  customer.customerZipCode = customerZipCode || customer.customerZipCode;
+  customer.customerCountry = customerCountry || customer.customerCountry;
+  customer.customerPhoneNumber = customerPhoneNumber || customer.customerPhoneNumber;
 
   // save to db
   Customer.update(customer, {where: {customerId : id}})

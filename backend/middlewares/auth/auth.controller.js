@@ -1,27 +1,29 @@
-// admin access
-const DEFAULT_USER = [
-  {
-    id: 1,
-    username: 'admin',
-    password: 'adminpass'
-  }
-];
+const db = require('../../models');
+const Customer = db.Customer;
 
 // login a user
-exports.login = (req, res) => {
+exports.login =  async (req, res) => {
   // validate
-  if(!req.body.username || !req.body.password) {
+  if(!req.body.customerEmailAddress || !req.body.customerPassword ) {
     res.status(400).send({
-      message: `Username or Password cannot be empty.`,
+      message: ` Email or Password cannot be empty.`,
       success: false,
       errorCode: `ERR9001`
     });
     return;
   }
 
-  const user = DEFAULT_USER.filter(user => user.username === req.body.username && user.password === req.body.password);
+  // encrypt password
+  const encodedPassword = btoa(req.body.customerPassword);
 
-  if(user.length <= 0) {
+  // search if user exist in db
+  const user = await Customer.findOne({where:{
+    customerEmailAddress : req.body.customerEmailAddress,
+    customerPassword : encodedPassword
+  }})
+
+  // validation if user match
+  if(!user) {
     res.status(400).send({
       message: `Username or Password does not match.`,
       success: false,
@@ -33,11 +35,11 @@ exports.login = (req, res) => {
       message: 'Successfully logged in',
       data: {
         success: true,
-        timestamp: Date.now()
+        timestamp: Date.now(),
+        data: user
       }
     });
   }
-  res.status(200).send({"status": 'success'})
 }
 
 // logout
