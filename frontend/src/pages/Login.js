@@ -19,7 +19,7 @@ const handleLogin = (event) => {
   event.preventDefault();
 
   const body = {
-    customerEmailAddress: event.target['username'].value,
+    customerEmailAddress: event.target['email'].value,
     customerPassword: event.target['password'].value
   };
   // console.log(constants.ENDPOINT);
@@ -76,7 +76,7 @@ useEffect(() => {
                 <path style={{strokeLinecap:"round", strokeLineJoin:"round", strokeWidth:"2",
                   d:"M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"}} />
               </svg>
-              <input className="pl-2 outline-none border-none" type="text" name="username" id="username" placeholder="Email Address" required/>
+              <input className="pl-2 outline-none border-none" type="email" name="email" id="email" placeholder="Email Address" required/>
         </div>
               <div className="flex items-center border-2 py-2 px-3 rounded-2xl">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" viewBox="0 0 20 20"
