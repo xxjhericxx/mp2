@@ -2,17 +2,18 @@ import React  from "react";
 // import Dashboard Header
 import DashboardHeader from '../components/DashboardHeader';
 
-const Dashboard = () => {
+const Orders = () => {
   return ( 
     <div>
     <DashboardHeader />
       <section className='py-16'>
         <h1 className="text-center text-5xl mt-6">
-          Site Overview
+          Orders Overview
         </h1>
+          
       </section>
     </div>
   );
 }
 
-export default Dashboard;
+export default Orders;
