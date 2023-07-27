@@ -1,6 +1,9 @@
 import React, { useState, useEffect }  from 'react';
+
+import { useNavigate } from 'react-router-dom';
+
 // import icons
-import { MdLogin, MdOutlineSpaceDashboard, MdOutlineProductionQuantityLimits } from 'react-icons/md';
+import { MdLogin, MdOutlineSpaceDashboard, MdOutlineProductionQuantityLimits, MdLogout } from 'react-icons/md';
 import { HiOutlineTruck } from 'react-icons/hi';
 // import link
 import { Link } from 'react-router-dom';
@@ -15,6 +18,45 @@ useEffect(() => {
     });
 });
 
+const [isLogin, setIsLogin] = useState(false);
+const [isAuth, setIsAuth] = useState(false);
+const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem('AUTH');
+    // console.log(token);
+    if (token !== "LOGGED_IN" || token === null) {
+        // console.log(token);
+        setIsAuth(false);
+        setIsLogin(false);
+        alert("You are not authorized!");
+        navigate(`/home`);
+    } else {
+        // console.log(token);
+        setIsLogin(true);
+    }
+  }, [isLogin]);
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem(`USER`));
+    // console.log(user);
+    if (!user || user === null || user.customerRole !== "admin" ) {
+        // console.log(user.customerRole);
+        setIsAuth(false);
+        alert("You are not authorized!");
+        navigate(`/home`);
+    } else {
+        // console.log(user.customerRole);
+        setIsAuth(true);
+    }
+  }, [isAuth]);
+
+  const handleLogout = () => {
+    localStorage.removeItem('AUTH');
+    localStorage.removeItem(`USER`)
+    navigate('/login');
+  };
+
 return (
     <header className={`${isActive ? 'bg-white py-4 shadow-md' : 'bg-none py-6'} 
     fixed w-full z-10 transition-all`}
@@ -22,28 +64,32 @@ return (
         <div className='container mx-auto flex h-full' style={{justifyContent: 'space-between'}}>
     {/* Overview */}
         <Link to={'/dashboard'} className='cursor-pointer flex relative' style={{paddingLeft: '60px'}}>
-            <a href='/'>
             <MdOutlineSpaceDashboard className='text-3xl' />
-            </a>
         </Link>
         {/* Logout */}
         <Link to={'/products'} className='cursor-pointer flex relative' style={{paddingLeft: '60px'}}>
-            <a href='/'>
             <MdOutlineProductionQuantityLimits className='text-3xl' />
-            </a>
         </Link>
         {/* Logout */}
         <Link to={'/orders'} className='cursor-pointer flex relative' style={{paddingLeft: '60px'}}>
-            <a href='/'>
             <HiOutlineTruck className='text-3xl' />
-            </a>
         </Link>
         {/* Logout */}
-        <Link to={'/admin'} className='cursor-pointer flex relative' style={{paddingLeft: '60px'}}>
-            <a href='/'>
-            <MdLogin className='text-3xl' />
-            </a>
-        </Link>
+        {isLogin ? (
+            <>
+            <Link onClick={handleLogout} to={'/login'} className='cursor-pointer flex relative' style={{ paddingLeft: '60px' }}>
+                < MdLogout className='text-3xl' />
+              </Link>
+            </>
+          ) : (
+            <>
+            <Link to={'/login'} className='cursor-pointer flex relative' style={{ paddingLeft: '60px' }}>
+                < MdLogin className='text-3xl' />
+              </Link>
+            </>
+
+          )}
+
         </div>
     </header>
 );
