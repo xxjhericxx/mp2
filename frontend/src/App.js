@@ -7,13 +7,14 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
 import ProductDetails from './pages/ProductDetails';
-import Admin from './pages/Admin';
 import Login from './pages/Login';
 import Signup from './pages/SignUp';
 import Product from './pages/Product';
 import ProductMen from './pages/ProductM';
 import ProductWomen from './pages/ProductW';
 import Dashboard from './pages/Dashboard';
+import Products from './pages/Products';
+import Orders from './pages/Orders';
 
 
 const App = () => {
@@ -25,8 +26,9 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home />} component />
         <Route path='/product/:id' element={<ProductDetails />} />
-        <Route path='/admin' element={<Admin />} />
         <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/products' element={<Products />} />
+        <Route path='/orders' element={<Orders />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/product' element={<Product />} />
@@ -35,8 +37,6 @@ const App = () => {
         <Route path='/home' element={<Home />} />
         <Route path='/cart' element={<Cart />} />
       </Routes>
-    </Router>
-    <Router>
     </Router>
   </div>
   </>
