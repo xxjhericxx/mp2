@@ -40,7 +40,7 @@ const Header = () => {
   const handleLogout = () => {
     localStorage.removeItem('AUTH');
     localStorage.removeItem(`USER`)
-    navigate('/home');
+    navigate('/login');
   };
 
 
