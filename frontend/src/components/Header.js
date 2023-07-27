@@ -27,9 +27,6 @@ const Header = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('AUTH');
-    console.log(token);
-    console.log(isLogin);
-
     if (token) {
       setIsLogin(true);
     } else {
