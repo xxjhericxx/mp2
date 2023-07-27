@@ -11,58 +11,38 @@ const Products = () => {
 
     // fetch data from db
     const [products, setProducts] = useState([]);
+
     useEffect(() => {
         fetch(`${constants.ENDPOINT}/api/products`, {method: 'GET', mode: 'cors'})
-          .then(response => response.json())
-          .then(data => {
-            setProducts(data.data);
-          })
-          .catch(error => console.error(error));
-      }, []);
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                setProducts(data.data);
+            })
+            .catch(error => console.error(error));
+    }, []);
+
 
     // Data for Table
     const columns = [
         {
             name: 'Product',
-            selector: row => <img src={row.productImage ? `${constants.ENDPOINT}/${row.productImage}` : ''} />, 
-            sortable: true
+            selector: row => <img src={row.productImage ? `${constants.ENDPOINT}/${row.productImage}` : ''} alt="" />, 
         },
         {
             name: 'Product ID',
             selector: row => row.productId,
-            sortable: true
         },
         {
             name: 'Stock',
             selector: row => row.productQuantity,
-            sortable: true
         },
         {
             name: 'Price',
             selector: row => row.productPrice,
-            sortable: true
-        },
-        {
-            name: 'Edit',
-            selector: row => row.action1,
-            sortable: true
-        },
-        {
-            name: 'Delete',
-            selector: row => row.action2,
-            sortable: true
-        },
-    ];
-    const data = [
-        {
-            product: 'image here',
-            id: 1,
-            stock: '100',
-            price: '$100',
-            action1: <button>Edit</button>,
-            action2: <button>Delete</button>
         }
-    ]
+    ];
+
 
     return ( 
         <div>
@@ -73,15 +53,31 @@ const Products = () => {
                 </h1>
                 
             </section>
-            <div className="mt-10 px-10">
-                <div>
-                <DataTable
-                    columns={columns}
-                    data={products}
-                    fixedHeader
-                    pagination
-                ></DataTable>
-                </div>
+            <div className="container">
+                <table className="table table-striped text-center">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Product ID</th>
+                            <th>Stock</th>
+                            <th>Price</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        <td>Image Here</td>
+                        <td>ID Here</td>
+                        <td>Stock Here</td>
+                        <td>Price Here</td>
+                        <td>
+                            <button className="btn btn-primary">Edit</button>
+                        </td>
+                        <td>
+                            <button className="btn btn-danger">Delete</button>
+                        </td>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
             </div>
         </div>
     )

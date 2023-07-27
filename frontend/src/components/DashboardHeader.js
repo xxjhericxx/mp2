@@ -71,7 +71,7 @@ return (
             <MdOutlineProductionQuantityLimits className='text-3xl' />
         </Link>
         {/* Logout */}
-        <Link to={'/orders'} className='cursor-pointer flex relative' style={{paddingLeft: '60px'}}>
+        <Link to={'/users'} className='cursor-pointer flex relative' style={{paddingLeft: '60px'}}>
             <HiOutlineTruck className='text-3xl' />
         </Link>
         {/* Logout */}

@@ -14,7 +14,7 @@ import ProductMen from './pages/ProductM';
 import ProductWomen from './pages/ProductW';
 import Dashboard from './pages/Dashboard';
 import Products from './pages/Products';
-import Orders from './pages/Orders';
+import Users from './pages/Users';
 
 
 const App = () => {
@@ -28,7 +28,7 @@ const App = () => {
         <Route path='/product/:id' element={<ProductDetails />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/products' element={<Products />} />
-        <Route path='/orders' element={<Orders />} />
+        <Route path='/users' element={<Users />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/product' element={<Product />} />
