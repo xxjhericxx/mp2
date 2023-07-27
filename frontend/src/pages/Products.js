@@ -1,30 +1,45 @@
 import React from "react";
+import { useState, useEffect } from "react";
 // import Data Table
 import DataTable from 'react-data-table-component';
 // import Dashboard Header
 import DashboardHeader from '../components/DashboardHeader';
+import constants from "../contexts/constants";
+
 
 const Products = () => {
+
+    // fetch data from db
+    const [products, setProducts] = useState([]);
+    useEffect(() => {
+        fetch(`${constants.ENDPOINT}/api/products`, {method: 'GET', mode: 'cors'})
+          .then(response => response.json())
+          .then(data => {
+            setProducts(data.data);
+          })
+          .catch(error => console.error(error));
+      }, []);
+
     // Data for Table
     const columns = [
         {
             name: 'Product',
-            selector: row => row.product,
+            selector: row => <img src={row.productImage ? `${constants.ENDPOINT}/${row.productImage}` : ''} />, 
             sortable: true
         },
         {
             name: 'Product ID',
-            selector: row => row.id,
+            selector: row => row.productId,
             sortable: true
         },
         {
             name: 'Stock',
-            selector: row => row.stock,
+            selector: row => row.productQuantity,
             sortable: true
         },
         {
             name: 'Price',
-            selector: row => row.price,
+            selector: row => row.productPrice,
             sortable: true
         },
         {
@@ -62,7 +77,7 @@ const Products = () => {
                 <div>
                 <DataTable
                     columns={columns}
-                    data={data}
+                    data={products}
                     fixedHeader
                     pagination
                 ></DataTable>
