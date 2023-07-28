@@ -9,14 +9,14 @@ import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-const Home = () => {
+const Shirts = () => {
   // get products from product context
   const { products } = useContext(ProductContext);
   console.log(products);
-  // get only men's & women's clothing category
+  // get only Shirts category
   const filteredProducts = products.filter((item) => {
     return (
-      item.category === "women's clothing"
+      item.productCategory === "Shirt"
     );
   });
 
@@ -27,7 +27,7 @@ const Home = () => {
       <section className='py-16'>
       <div className='flex justify-center'> 
         <h1 className='text-5xl font-bold'>
-        Women's Clothing
+          Shirts
         </h1>
       </div>
       <br />
@@ -44,4 +44,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Shirts;

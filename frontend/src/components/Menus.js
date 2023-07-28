@@ -1,11 +1,11 @@
 export const PRODUCTS = [
-  { name: "Men's Clothing", link: "/product/men" },
-  { name: "Women's Clothing", link: "/product/women" }
+  { name: "Shirts", link: "/product/shirts" },
+  { name: "Jackets", link: "/product/jackets" },
+  { name: "Bags", link: "/product/bags" }
 ];
 export const COMPANY = [
   { name: "About us", link: "#" },
   { name: "Customer Stories", link: "#" },
-  { name: "Online communities", link: "#" },
   { name: "Careers", link: "#" }
 ];
 export const SUPPORT = [

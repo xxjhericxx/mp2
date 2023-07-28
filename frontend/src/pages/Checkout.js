@@ -58,6 +58,11 @@ const Checkout = () => {
 		</div>
 		<div className="flex md:w-1/2 justify-center py-10 items-center bg-white">
 		<form class="w-full max-w-lg">
+			<div className='flex justify-center'> 
+				<h1 className='text-5xl font-bold py-5'>
+					Checkout Form
+				</h1>
+			</div>
 			<div class="flex flex-wrap -mx-3 mb-6">
 				<div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
 				<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
