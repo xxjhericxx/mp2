@@ -36,7 +36,7 @@ const Sidebar = () => {
         return <CartItem item={item} key={item.productId} />;
       })}
       </div>
-      <div className='flex flex-col gap-y-3 py-4 mt-4'>
+      <div className='flex flex-col gap-y-3 py-4'>
         <div className='flex w-full justify-between items-center'>
           {/* total */}
           <div className='uppercase font-semibold'>
@@ -53,13 +53,13 @@ const Sidebar = () => {
         </div>
         <Link
           to='/cart'
-          className='bg-gray-200 flex p-4 justify-center items-center text-primary w-full font-medium'
+          className='bg-gray-200 flex p-4 justify-center items-center text-black w-full font-medium'
         >
           View Cart
         </Link>
         <Link
           to='/checkout'
-          className='bg-primary flex p-4 justify-center items-center text-white w-full font-medium'
+          className='bg-black flex p-4 justify-center items-center text-white w-full font-medium'
         >
           Checkout
         </Link>

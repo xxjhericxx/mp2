@@ -60,7 +60,7 @@ const ProductDetails = () => {
             </p>
             <button
               onClick={() => addToCart(product, product.productId)}
-              className='bg-primary py-4 px-8 text-white'
+              className='bg-black py-4 px-8 text-white'
             >
               Add to cart
             </button>

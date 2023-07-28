@@ -5,8 +5,8 @@ import { Icons } from "./Menus";
 
 const Footer = () => {
   return (
-    <footer className='bg-primary py-12'>
-      <div className='d-flex text-center'>
+    <footer className='bg-black py-12'>
+      <div className='text-center justify-around'>
       <ItemsContainer />
       </div>
       <div

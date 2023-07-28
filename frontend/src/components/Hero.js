@@ -22,7 +22,7 @@ const Hero = () => {
             </h1>
             <Link
               to={'/product'}
-              className='self-start uppercase font-semibold border-b-2 border-primary'
+              className='self-start uppercase font-semibold border-b-2 border-black'
             >
               Discover more
             </Link>

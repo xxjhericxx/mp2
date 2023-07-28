@@ -54,7 +54,7 @@ const Home = () => {
         </div>
         <Link
           to='/checkout'
-          className='bg-primary flex p-4 justify-center items-center text-white w-full font-medium'
+          className='bg-black flex p-4 justify-center items-center text-white w-full font-medium'
         >
           Checkout
         </Link>

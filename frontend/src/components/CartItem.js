@@ -28,7 +28,7 @@ const CartItem = ({ item }) => {
             <Link
               to={`/product/${productId}`}
               className='text-sm uppercase font-medium max-w-[240px] 
-              text-primary hover:underline'
+              text-black hover:underline'
             >
               {productName}
             </Link>
@@ -40,7 +40,7 @@ const CartItem = ({ item }) => {
           <div className=' flex gap-x-2 h-[36px] text-sm'>
             {/* qty */}
             <div className='flex flex-1 max-w-[100px] items-center h-full border
-            text-primary font-medium'>
+            text-black font-medium'>
               {/* minus icon */}
               <div 
               onClick={() => decreaseAmount(productId)}
@@ -62,7 +62,7 @@ const CartItem = ({ item }) => {
             <div className='flex-1 flex items-center justify-around'>$ {productPrice}</div>
             {/* final price */}
             {/* price at 2 decimals */}
-            <div className='flex-1 flex justify-end items-center text-primary font-medium'>
+            <div className='flex-1 flex justify-end items-center text-black font-medium'>
               {`$ ${parseFloat(productPrice * amount).toFixed(2)}`}</div>
           </div>
         </div>
