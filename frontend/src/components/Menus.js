@@ -8,7 +8,7 @@ export const COMPANY = [
   { name: "Customer Stories", link: "#" }
 ];
 export const SUPPORT = [
-  { name: "Contact Us", link: "#" },
+  { name: "Contact Us", link: "/contact" },
   { name: "FAQs", link: "#" }
 ];
 

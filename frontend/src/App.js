@@ -19,6 +19,7 @@ import Shirts from './pages/Shirts';
 import Dashboard from './pages/Dashboard';
 import Products from './pages/Products';
 import Users from './pages/Users';
+import Contact from './pages/Contact';
 
 const App = () => {
   
@@ -28,6 +29,7 @@ const App = () => {
     <Router>
       <Routes>
         <Route path='/' element={<Home />} component />
+        <Route path='/contact' element={<Contact />} component />
         <Route path='/product/:id' element={<ProductDetails />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/products' element={<Products />} />
