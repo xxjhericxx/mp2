@@ -5,12 +5,10 @@ export const PRODUCTS = [
 ];
 export const COMPANY = [
   { name: "About us", link: "#" },
-  { name: "Customer Stories", link: "#" },
-  { name: "Careers", link: "#" }
+  { name: "Customer Stories", link: "#" }
 ];
 export const SUPPORT = [
   { name: "Contact Us", link: "#" },
-  { name: "Newsletter", link: "#" },
   { name: "FAQs", link: "#" }
 ];
 

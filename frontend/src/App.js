@@ -20,7 +20,6 @@ import Dashboard from './pages/Dashboard';
 import Products from './pages/Products';
 import Users from './pages/Users';
 
-
 const App = () => {
   
   return (

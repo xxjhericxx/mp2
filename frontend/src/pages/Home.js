@@ -9,6 +9,24 @@ import Hero from '../components/Hero';
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Newsletter from '../components/Newsletter';
+import FAQ from '../components/FAQ';
+
+
+const items = [
+  {
+    title: 'Returns Policy',
+    content: 'Original receipt of purchase is needed for product exchange/refund within 30 days after purchase date or shipment date provided the product is bought through our website.'
+  },
+  {
+    title: 'How long does delivery usually take?',
+    content: 'We can only provide estimates, but more detailed information may be viewed on your order status once the items have been shipped. We will allocate additional days for cases of unforeseen events such as natural calamities.'
+  },
+  {
+    title:'How can i cancel my order online?',
+    content:'You can Contact us through out Contact form, But once orders are shipped there are no refunds through our site. you will have to pay for the products you ordered.'
+  }
+];
 
 const Home = () => {
   // get products from product context
@@ -32,14 +50,15 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <div className='flex justify-center'> 
-        <h1 className='text-5xl font-bold mt-5'>
-            Newsletter
-        </h1>
-      </div>
-      <section className='py-16'>
-        
-      </section>
+        <Newsletter />
+          <div className='flex justify-center'> 
+            <h1 className='text-5xl font-bold mt-5 mb-5'>
+            FAQs
+            </h1>
+          </div>
+          <div className="p-4">
+            <FAQ items={items} />
+          </div>
       <Footer />
   </div>
   );
