@@ -20,6 +20,7 @@ import Dashboard from './pages/Dashboard';
 import Products from './pages/Products';
 import Users from './pages/Users';
 import Contact from './pages/Contact';
+import Terms from './pages/Terms';
 
 const App = () => {
   
@@ -43,6 +44,7 @@ const App = () => {
         <Route path='/product/shirts' element={<Shirts />} />
         <Route path='/home' element={<Home />} />
         <Route path='/cart' element={<Cart />} />
+        <Route path='/terms' element={<Terms />} />
         <Route path='/checkout' element={<Checkout />} />
         <Route path='/thankyou' element={<ThankYou />} />
       </Routes>

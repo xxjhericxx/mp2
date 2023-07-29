@@ -4,12 +4,11 @@ export const PRODUCTS = [
   { name: "Bags", link: "/product/bags" }
 ];
 export const COMPANY = [
-  { name: "About us", link: "#" },
+  { name: "About us", link: "/about" },
   { name: "Customer Stories", link: "#" }
 ];
 export const SUPPORT = [
-  { name: "Contact Us", link: "/contact" },
-  { name: "FAQs", link: "#" }
+  { name: "Contact Us", link: "/contact" }
 ];
 
 export const Icons = [

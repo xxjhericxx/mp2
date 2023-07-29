@@ -14,7 +14,7 @@ const Footer = () => {
       text-center pt-2 text-gray-500 text-sm pb-8"
       >
         <span>© 2023 All rights reserved.</span>
-        <span>Terms · Privacy Policy</span>
+        <span><a href='/terms'>Terms · Privacy Policy</a></span>
         <SocialIcons Icons={Icons} />
       </div>
     </footer>
