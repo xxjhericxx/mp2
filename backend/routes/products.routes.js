@@ -1,3 +1,4 @@
+const { isAuth } = require(`../middlewares/auth/auth.middleware`)
 const { upload } = require('../middlewares/multer/upload.middleware');
 
 // product.routes.js
@@ -23,10 +24,10 @@ module.exports = (app) => {
   router.post('/:id/image', upload.single('image'), products.updateProductImage);
 
   // delete all products
-  router.delete('/', products.deleteAll);
+  router.delete('/', isAuth, products.deleteAll);
 
   // delete one product via id
-  router.delete('/:id', products.deleteOne);
+  router.delete('/:id', isAuth, products.deleteOne);
 
   // use the router
   app.use('/api/products', router);
