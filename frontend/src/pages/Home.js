@@ -50,8 +50,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-        <Newsletter />
-          <div className='flex justify-center'> 
+      <div className='flex justify-center'> 
             <h1 className='text-5xl font-bold mt-5 mb-5'>
             FAQs
             </h1>
@@ -59,6 +58,7 @@ const Home = () => {
           <div className="p-4">
             <FAQ items={items} />
           </div>
+        <Newsletter />
       <Footer />
   </div>
   );

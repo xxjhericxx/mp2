@@ -14,7 +14,7 @@ const Contact = () => {
             <Sidebar />
                 <div className='flex justify-center'> 
                     <h1 className='text-5xl font-bold mt-5 mb-5'>
-                    
+                    COMPANY
                     </h1>
                 </div>
                     <div
