@@ -9,7 +9,7 @@ exports.isAuth = (req, res, next) => {
   
   const auth = req.headers.authorization.split(' ')[1];
   const decodedAuth = new Buffer(auth, 'base64').toString();
-  // const uname = decodedAuth.split(':')[0];
+  const uname = decodedAuth.split(':')[0];
   const upass = decodedAuth.split(':')[1];
 
   // uname = admin@admin.com
