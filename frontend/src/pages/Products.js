@@ -22,7 +22,6 @@ const Products = () => {
         fetch(`${constants.ENDPOINT}/api/products`, {method: 'GET', mode: 'cors'})
             .then(response => response.json())
             .then(data => {
-                console.log(data)
                 setProducts(data.data);
             })
             .catch(error => console.error(error));
@@ -33,7 +32,6 @@ const Products = () => {
         fetch(`${constants.ENDPOINT}/api/productCategories`, {method: 'GET', mode: 'cors'})
             .then(response => response.json())
             .then(data => {
-                console.log(data)
                 setProductCategories(data.data);
             })
             .catch(error => console.error(error));
@@ -57,12 +55,8 @@ const Products = () => {
         .then(response => response.json())
         .then(data => {
           if(data.success === true && data.data.recordsAffected === 1) {
-            console.log(id);
-            // 1. Make your own copy of data
-            const newProducts = [...products]; //copy [1,2,3]
-            // 2. Modify your copy data
+            const newProducts = [...products]; 
             newProducts.splice(getIndexById(id), 1);
-            // 3. Replace the original data
             setProducts(newProducts);
           } else {
             alert(`Unable to delete product id=${id}`)
@@ -123,13 +117,10 @@ const Products = () => {
           const newProducts = [...products];
           newProducts[getIndexById(product.productId)] = data.data.entity;
           setProducts(newProducts);
-          console.log(productImage);
         if(productImage) {
           // process image upload here...
-          console.log(productImage);
           const formData = new FormData();
           formData.append('image', productImage);
-          console.log(formData);
           fetch(`${constants.ENDPOINT}/api/products/${product.productId}/image`, {
             method: 'POST',
             mode: 'cors', 
@@ -198,7 +189,7 @@ const Products = () => {
       // render productList
       const renderProductListItem = (product) => {
         return (<ProductListItem 
-          key={product.ptoductId}
+          key={product.productId}
           product={product} 
           deleteProduct={deleteProduct}
           editProduct={setSelectedProduct}
