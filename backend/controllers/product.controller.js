@@ -18,7 +18,7 @@ exports.create = (req, res) => {
   const product = {
     productCode, productDescription, productName, productCategory, productImage, productPrice, productQuantity
   };
-  product.productImage = productImage || product.productImage;
+  product.productImage = (productImage ? product.productImage : 'uploads/DEFAULT_PRODUCT_IMAGE.jpg');
   product.productQuantity = productQuantity || product.productQuantity;
   
 
@@ -110,21 +110,37 @@ exports.update = (req, res) => {
   const product = {
     productCode, productDescription, productName, productCategory, productImage, productPrice, productQuantity
   };
-  product.productImage = productImage || product.productImage;
+  product.productImage = (productImage ? product.productImage : 'uploads/DEFAULT_PRODUCT_IMAGE.jpg');
   product.productQuantity = productQuantity || product.productQuantity;
-
+  
   // save to db
-  Product.update(product, {where: {productId : id}})
+  Product.update(product, {where: {productId: id}})
     .then(num => {
       if (num && num[0] && num >= 1) {
-        res.status(200).send({
-          success: true,
-          message: 'Product updated successfully.',
-          data: {
-            id: id,
-            recordsAffected: num && num[0] ? num[0] : 1
-          }
-        });
+        Product.findByPk(id)
+          .then(data => {
+            res.status(200).send({
+              success: true,
+              message: 'Task updated successfully.',
+              data: {
+                id: id,
+                recordsAffected: num && num[0] ? num[0] : 1,
+                entity: data
+              }
+            });
+          })
+          .catch(error => {
+            res.status(200).send({
+              success: true,
+              message: 'Task updated successfully.',
+              data: {
+                id: id,
+                recordsAffected: num && num[0] ? num[0] : 1,
+                error: error
+              }
+            });
+          });
+        
       } else {
         res.status(400).send({
           success: false,
@@ -214,18 +230,33 @@ exports.updateProductImage = (req, res) => {
   Product.update(product, {where: {productId: id}})
     .then(num => {
       if (num && num[0] && num >= 1) {
-        res.status(200).send({
-          success: true,
-          message: 'Product image updated successfully.',
-          data: {
-            id: id,
-            recordsAffected: num && num[0] ? num[0] : 1
-          }
-        });
+        Product.findByPk(id)
+          .then(data => {
+            res.status(200).send({
+              success: true,
+              message: 'Task updated successfully.',
+              data: {
+                id: id,
+                recordsAffected: num && num[0] ? num[0] : 1,
+                entity: data
+              }
+            });
+          })
+          .catch(error => {
+            res.status(200).send({
+              success: true,
+              message: 'Task updated successfully.',
+              data: {
+                id: id,
+                recordsAffected: num && num[0] ? num[0] : 1,
+                error: error
+              }
+            });
+          });
       } else {
         res.status(400).send({
           success: false,
-          message: `Cannot find customer data with id = ${id}, update data ignored.`,
+          message: `Cannot find product data with id = ${id}, update data ignored.`,
           errorCode: `ERR7002`
         });
       }
@@ -237,4 +268,4 @@ exports.updateProductImage = (req, res) => {
         errorCode: `ERR8004`,
       })
     });
-}
+};
