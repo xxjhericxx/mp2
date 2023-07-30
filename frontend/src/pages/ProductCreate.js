@@ -64,7 +64,7 @@ const ProductCreate = ({addProduct, productCategories}) => {
       </div>
       <input type="text" 
         className="form-control" 
-        placeholder="Add a product code ..."
+        placeholder="Code"
         value={productCode} 
         onChange={(e) => {
             setProductCode(e.target.value);
@@ -72,7 +72,7 @@ const ProductCreate = ({addProduct, productCategories}) => {
       />
       <input type="text" 
         className="form-control" 
-        placeholder="Add a product code ..."
+        placeholder="Name"
         value={productName} 
         onChange={(e) => {
             setProductName(e.target.value);
@@ -80,7 +80,7 @@ const ProductCreate = ({addProduct, productCategories}) => {
       />
       <input type="text" 
         className="form-control" 
-        placeholder="Add a product code ..."
+        placeholder="Description"
         value={productDescription} 
         onChange={(e) => {
             setProductDescription(e.target.value);
@@ -88,7 +88,7 @@ const ProductCreate = ({addProduct, productCategories}) => {
       />
       <input type="text" 
         className="form-control" 
-        placeholder="Add a product code ..."
+        placeholder="Price"
         value={productPrice} 
         onChange={(e) => {
             setProductPrice(e.target.value);
@@ -96,7 +96,7 @@ const ProductCreate = ({addProduct, productCategories}) => {
       />
       <input type="text" 
         className="form-control" 
-        placeholder="Add a product code ..."
+        placeholder="Quantity"
         value={productQuantity} 
         onChange={(e) => {
             setProductQuantity(e.target.value);
