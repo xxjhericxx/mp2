@@ -121,17 +121,33 @@ exports.update = (req, res) => {
   customer.customerPhoneNumber = customerPhoneNumber || customer.customerPhoneNumber;
 
   // save to db
-  Customer.update(customer, {where: {customerId : id}})
+  Customer.update(customer, {where: {customerId: id}})
     .then(num => {
       if (num && num[0] && num >= 1) {
-        res.status(200).send({
-          success: true,
-          message: 'Customer updated successfully.',
-          data: {
-            id: id,
-            recordsAffected: num && num[0] ? num[0] : 1
-          }
-        });
+        Customer.findByPk(id)
+          .then(data => {
+            res.status(200).send({
+              success: true,
+              message: 'Task updated successfully.',
+              data: {
+                id: id,
+                recordsAffected: num && num[0] ? num[0] : 1,
+                entity: data
+              }
+            });
+          })
+          .catch(error => {
+            res.status(200).send({
+              success: true,
+              message: 'Task updated successfully.',
+              data: {
+                id: id,
+                recordsAffected: num && num[0] ? num[0] : 1,
+                error: error
+              }
+            });
+          });
+        
       } else {
         res.status(400).send({
           success: false,
@@ -221,18 +237,33 @@ exports.updateCustomerImage = (req, res) => {
   Customer.update(customer, {where: {customerId: id}})
     .then(num => {
       if (num && num[0] && num >= 1) {
-        res.status(200).send({
-          success: true,
-          message: 'Customer image updated successfully.',
-          data: {
-            id: id,
-            recordsAffected: num && num[0] ? num[0] : 1
-          }
-        });
+        Customer.findByPk(id)
+          .then(data => {
+            res.status(200).send({
+              success: true,
+              message: 'Task updated successfully.',
+              data: {
+                id: id,
+                recordsAffected: num && num[0] ? num[0] : 1,
+                entity: data
+              }
+            });
+          })
+          .catch(error => {
+            res.status(200).send({
+              success: true,
+              message: 'Task updated successfully.',
+              data: {
+                id: id,
+                recordsAffected: num && num[0] ? num[0] : 1,
+                error: error
+              }
+            });
+          });
       } else {
         res.status(400).send({
           success: false,
-          message: `Cannot find customer data with id = ${id}, update data ignored.`,
+          message: `Cannot find product data with id = ${id}, update data ignored.`,
           errorCode: `ERR7002`
         });
       }
@@ -244,4 +275,4 @@ exports.updateCustomerImage = (req, res) => {
         errorCode: `ERR8004`,
       })
     });
-}
+};
