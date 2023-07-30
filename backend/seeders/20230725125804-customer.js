@@ -7,6 +7,7 @@ module.exports = {
       customerId: "6aaf190e-0eb2-4272-a244-0c5f1ae66d82",
       customerFirstName: "Admin",
       customerLastName: "Admin",
+      customerImage: "uploads/DEFAULT_USER_IMAGE.png",
       customerEmailAddress: "admin@admin.com",
       customerPassword: "YWRtaW5wYXNz",
       customerRole: "admin",
